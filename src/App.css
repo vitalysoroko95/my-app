@@ -19,28 +19,16 @@
     "a b"
     "alb alb"
     "w w";
-  grid-gap: 1vw;   grid-template-rows: 200px 1fr 1fr;
+  grid-gap: 1vw;
+  grid-template-rows: 200px 1fr 1fr;
   grid-template-columns:1fr 1fr ;
-
-}
-
-.app-wrapper-content img{
-  height: 200px;
 }
 
 
-.avatar{
-  grid-area: a;
-}
 
-.bio{
-  grid-area: b;
-}
 
-.album{
-  grid-area: alb;
-  background-color: #4d648d;
-}
+
+
 
 .wall {
   grid-area: w;

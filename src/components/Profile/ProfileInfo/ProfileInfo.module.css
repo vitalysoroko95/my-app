@@ -1,0 +1,11 @@
+.avatar{
+    grid-area: a;
+    padding: 10px;
+}
+.avatar img{
+    height: 200px;
+}
+.bio{
+    grid-area: b;
+    padding: 10px;
+}

@@ -1,0 +1,18 @@
+
+
+
+.friendsList{
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: repeat(3, 1fr);
+justify-content: center;
+    padding-top: 20px;
+    padding-left: 35px;
+
+
+}
+.friendsList img{
+    height: 50px;
+
+}
+

@@ -1,0 +1,5 @@
+.album{
+    grid-area: alb;
+    background-color: #4d648d;
+    padding: 10px;
+}
