@@ -3,6 +3,7 @@ import s from './Profile.module.css';
 import Blog from "./Blog/Blog";
 import ProfileInfo from "./ProfileInfo/ProfileInfo";
 import Album from "./Album/Album";
+import {updateNewPostText} from "../../redux/state";
 
 
 const Profile = (props) => {
@@ -10,9 +11,10 @@ const Profile = (props) => {
         <div>
             <ProfileInfo/>
             <Album/>
-            <Blog state={props.profilePage}
+            <Blog state={props.profilePage.postsData}
             addPost={props.addPost}
-            updateNewText={props.updateNewText}
+            newPostText={props.profilePage.newPostText}
+                  updateNewPostText = {props.updateNewPostText}
             />
         </div>
     )

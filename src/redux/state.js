@@ -1,5 +1,7 @@
-import {reRender} from "../render";
 
+let reRender = ()=> {
+
+}
 
 let state = {
     dialogsPage: {
@@ -43,16 +45,30 @@ let state = {
         ]
     }
 }
-
-export let addPost = (postMessage) =>{
-    let newPost ={id:5, message:postMessage, likesCount:0 }
-    state.profilePage.postsData.push(newPost)
+window.state = state;
+export let addPost = () => {
+    debugger;
+    let newPost = {
+        id: 5,
+        message: state.profilePage.newPostText,
+        likesCount: 0
+    };
+    state.profilePage.postsData.push(newPost);
+    state.profilePage.newPostText = '';
     reRender(state);
-}
-export let updateNewText = (newText) =>{
 
-    state.profilePage.newPostText= newText;
+};
+export let updateNewPostText = (newText) =>{
+
+    state.profilePage.newPostText = newText;
     reRender(state);
+};
+
+
+export const subscribe= (observer) => {
+    reRender = observer;
+
 }
+
 
 export default state;

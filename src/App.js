@@ -5,8 +5,7 @@ import Nav from "./components/Nav/Nav";
 import Profile from "./components/Profile/Profile";
 import Tools from "./components/Tools/Tools";
 import Dialogs from "./components/Dialogs/Dialogs";
-import s from 'react';
-import {BrowserRouter, Route} from "react-router-dom";
+import { Route} from "react-router-dom";
 import News from "./components/News/News";
 import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
@@ -23,7 +22,7 @@ const App = (props) => {
             <div className='app-wrapper-content'>
                 <Route path='/profile' render={() => <Profile profilePage={props.state.profilePage}
                                                               addPost={props.addPost}
-                                                              updateNewText={props.updateNewText}
+                                                              updateNewPostText={props.updateNewPostText}
                 />}/>
                 <Route path='/dialogs' render={() => <Dialogs state={props.state.dialogsPage}/>}/>
                 <Route path='/news' component={News}/>
