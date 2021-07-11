@@ -12,12 +12,12 @@ const Profile = (props) => {
             <ProfileInfo/>
             <Album/>
             <Blog state={props.profilePage.postsData}
-            addPost={props.addPost}
-            newPostText={props.profilePage.newPostText}
-                  updateNewPostText = {props.updateNewPostText}
+                  dispatch={props.dispatch}
+                  newPostText = {props.newPostText}
             />
         </div>
     )
 }
+
 
 export default Profile;
