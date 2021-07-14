@@ -1,20 +1,17 @@
 import React from 'react';
-import s from './Profile.module.css';
-import Blog from "./Blog/Blog";
 import ProfileInfo from "./ProfileInfo/ProfileInfo";
 import Album from "./Album/Album";
-import {updateNewPostText} from "../../redux/profile-reducer";
+
+import BlogContainer from "./Blog/BlogContainer";
 
 
-const Profile = (props) => {
+
+const Profile = () => {
     return (
         <div>
-            <ProfileInfo/>
-            <Album/>
-            <Blog state={props.profilePage.postsData}
-                  dispatch={props.dispatch}
-                  newPostText = {props.newPostText}
-            />
+            <ProfileInfo />
+            <Album />
+            <BlogContainer />
         </div>
     )
 }
