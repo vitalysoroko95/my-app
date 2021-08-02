@@ -4,6 +4,7 @@
 }
 .avatar img{
     height: 200px;
+    width: 200px;
 }
 .bio{
     grid-area: b;
