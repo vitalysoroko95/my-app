@@ -5,12 +5,12 @@ const SET_USERS = 'SET_USERS';
 
 
 let initialState = {
-    friendsState: [
-            {id: 1, name: 'Dima', location : {country: 'Belarus', city: 'Minsk'}, status: 'onm omn omn', isFriend : true, avatar: 'https://icon-library.com/images/avatar-icon-images/avatar-icon-images-4.jpg' },
-        {id: 2, name: 'Masha', location : {country: 'Russia', city: 'Moscow'}, status: 'onm omn omn', isFriend : false, avatar: 'https://icon-library.com/images/avatar-icon-images/avatar-icon-images-4.jpg'},
-        {id: 3, name: 'LESHA', location : {country: 'Ukraine', city: 'Kiyv'}, status: 'onm omn omn', isFriend : true, avatar: 'https://icon-library.com/images/avatar-icon-images/avatar-icon-images-4.jpg'},
-    ]
-};
+friendsState: [
+    /*{id: 1, name: 'Dima', location : {country: 'Belarus', city: 'Minsk'}, status: 'onm omn omn', isFriend : true, avatar: 'https://icon-library.com/images/avatar-icon-images/avatar-icon-images-4.jpg' },
+    {id: 2, name: 'Masha', location : {country: 'Russia', city: 'Moscow'}, status: 'onm omn omn', isFriend : false, avatar: 'https://icon-library.com/images/avatar-icon-images/avatar-icon-images-4.jpg'},
+    {id: 3, name: 'LESHA', location : {country: 'Ukraine', city: 'Kiyv'}, status: 'onm omn omn', isFriend : true, avatar: 'https://icon-library.com/images/avatar-icon-images/avatar-icon-images-4.jpg'},*/
+]}
+
 
 const friendsReducer = (state = initialState, action) => {
 
