@@ -4,17 +4,16 @@ import {connect} from "react-redux";
 import {addFriendAC, deleteFriendAC, setUsersAC} from "../../redux/friends-reducer";
 
 
-
-let mapStateToProps =(state) => {
+let mapStateToProps = (state) => {
     return {
         friends: state.friendsPage.friendsState
     }
 }
 
-let mapDispatchToProps =(dispatch) => {
+let mapDispatchToProps = (dispatch) => {
     return {
         addFriend: (userId) => {
-        dispatch(addFriendAC(userId));
+            dispatch(addFriendAC(userId));
         },
         deleteFriend: (userId) => {
             dispatch(deleteFriendAC(userId));
@@ -25,5 +24,5 @@ let mapDispatchToProps =(dispatch) => {
 
     }
 }
-const FriendsContainer = connect (mapStateToProps, mapDispatchToProps) (Friends);
-export default  FriendsContainer;
+const FriendsContainer = connect(mapStateToProps, mapDispatchToProps)(Friends);
+export default FriendsContainer;
