@@ -16,7 +16,7 @@ let Friends = (props)=> {
                 {pages.map(p => {
                     return <span onClick={(e) => {
                         props.pageClick(p)
-                    }} className={props.currentPage === p && styles.selectedPage}>{p}</span>
+                    }} className={props.currentPage === p && styles.selectedPage}>{p} </span>
                 })}
             </div>
             {
