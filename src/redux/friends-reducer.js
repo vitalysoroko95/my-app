@@ -9,7 +9,7 @@ const SET_TOTAL_COUNT = 'SET_TOTAL_COUNT';
 
 let initialState = {
     friendsState: [],
-    pageSize: 5,
+    pageSize: 100,
     totalUsersCount: 0,
     currentPage: 2
 }
