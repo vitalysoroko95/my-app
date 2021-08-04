@@ -1,0 +1,10 @@
+.av{
+    width: 75px;
+    height: 75px;
+}
+
+
+.selectedPage{
+    font-weight: bold;
+    font-size: large;
+}
