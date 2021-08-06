@@ -3,51 +3,51 @@ import styles from './Friends.module.css'
 import userPhoto from '../../assets/images/user.png'
 
 
-let Friends = (props)=> {
-        let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
+let Friends = (props) => {
+    let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
 
-        let pages = [];
-        for (let i = 1; i <= pagesCount; i++) {
-            pages.push(i);
-        }
-        return <div>
+    let pages = [];
+    for (let i = 1; i <= pagesCount; i++) {
+        pages.push(i);
+    }
+    return <div>
 
-            <div>
-                {pages.map(p => {
-                    return <span onClick={(e) => {
-                        props.pageClick(p)
-                    }} className={props.currentPage === p && styles.selectedPage}>{p} </span>
-                })}
-            </div>
-            {
-                props.friends.map(u => <div key={u.id}>
-                        <div>
-                            <div><img src={u.photos.small != null ? u.photos.small : userPhoto} className={styles.av}
-                                      alt=''/>
-                            </div>
-                            <div>
-                                {u.isFriend
-                                    ? <button onClick={() => {
-                                        props.deleteFriend(u.id)
-                                    }}>DELETE FRIEND</button>
-                                    : <button onClick={() => {
-                                        props.addFriend(u.id)
-                                    }}>ADD FRIEND</button>}
-                            </div>
+        <div>
+            {pages.map(p => {
+                return <span onClick={(e) => {
+                    props.pageClick(p)
+                }} className={props.currentPage === p && styles.selectedPage}>{p} </span>
+            })}
+        </div>
+        {
+            props.friends.map(u => <div key={u.id}>
+                    <div>
+                        <div><img src={u.photos.small != null ? u.photos.small : userPhoto} className={styles.av}
+                                  alt=''/>
                         </div>
                         <div>
-                            <div>{u.name}</div>
-                            <div>{u.status}</div>
-                        </div>
-
-                        <div>
-                            <div>{'u.location.country'}</div>
-                            <div>{'u.location.city'}</div>
+                            {u.isFriend
+                                ? <button onClick={() => {
+                                    props.deleteFriend(u.id)
+                                }}>DELETE FRIEND</button>
+                                : <button onClick={() => {
+                                    props.addFriend(u.id)
+                                }}>ADD FRIEND</button>}
                         </div>
                     </div>
-                )
-            }
-        </div>
-    }
+                    <div>
+                        <div>{u.name}</div>
+                        <div>{u.status}</div>
+                    </div>
+
+                    <div>
+                        <div>{'u.location.country'}</div>
+                        <div>{'u.location.city'}</div>
+                    </div>
+                </div>
+            )
+        }
+    </div>
+}
 
 export default Friends;

@@ -2,12 +2,12 @@ import React from 'react';
 import Friends from "./Friends";
 import {connect} from "react-redux";
 import {
-    addFriendAC,
-    deleteFriendAC,
-    setCurrentPageAC,
-    setFetchingAC,
-    setTotalCountAC,
-    setUsersAC
+    addFriend,
+    deleteFriend,
+    setCurrentPage,
+    setFetching,
+    setTotalCount,
+    setUsers
 } from "../../redux/friends-reducer";
 import * as axios from "axios";
 import Preloader from "../../common/preloader/Preloader";
@@ -66,28 +66,13 @@ let mapStateToProps = (state) => {
     }
 }
 
-let mapDispatchToProps = (dispatch) => {
-    return {
-        addFriend: (userId) => {
-            dispatch(addFriendAC(userId));
-        },
-        deleteFriend: (userId) => {
-            dispatch(deleteFriendAC(userId));
-        },
-        setUsers: (users) => {
-            dispatch(setUsersAC(users));
-        },
-        setCurrentPage: (currentPage) => {
-            dispatch(setCurrentPageAC(currentPage));
-        },
-        setTotalCount: (totalCount) => {
-            dispatch(setTotalCountAC(totalCount));
-        },
-        setIsFetching: (isFetching) => {
-            dispatch(setFetchingAC(isFetching));
-        }
 
-    }
-}
+export default connect(mapStateToProps, {
+    addFriend: addFriend,
+    deleteFriend: deleteFriend,
+    setUsers: setUsers,
+    setCurrentPage: setCurrentPage,
+    setTotalCount: setTotalCount,
+    setIsFetching: setFetching
 
-export default connect(mapStateToProps, mapDispatchToProps)(FriendsContainer);
+})(FriendsContainer);

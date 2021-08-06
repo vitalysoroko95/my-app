@@ -4,7 +4,6 @@ import profileReducer from "./profile-reducer";
 import friendsReducer from "./friends-reducer";
 
 
-
 let reducers = combineReducers({
     profilePage: profileReducer,
     dialogsPage: dialogsReducer,
