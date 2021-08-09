@@ -5,7 +5,7 @@ import {
     addFriend,
     deleteFriend,
     setCurrentPage,
-    setFetching,
+    setIsFetching,
     setTotalCount,
     setUsers
 } from "../../redux/friends-reducer";
@@ -37,7 +37,7 @@ class FriendsContainer extends React.Component {
 
     render() {
         return <>
-            {this.props.isFetching ? <Preloader /> : null}
+            {this.props.isFetching ? <Preloader/> : null}
             <Friends
                 totalUsersCount={this.props.totalUsersCount}
                 pageSize={this.props.pageSize}
@@ -68,11 +68,11 @@ let mapStateToProps = (state) => {
 
 
 export default connect(mapStateToProps, {
-    addFriend: addFriend,
-    deleteFriend: deleteFriend,
-    setUsers: setUsers,
-    setCurrentPage: setCurrentPage,
-    setTotalCount: setTotalCount,
-    setIsFetching: setFetching
+    addFriend,
+    deleteFriend,
+    setUsers,
+    setCurrentPage,
+    setTotalCount,
+    setIsFetching
 
 })(FriendsContainer);

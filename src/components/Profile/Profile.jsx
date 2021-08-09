@@ -6,10 +6,10 @@ import BlogContainer from "./Blog/BlogContainer";
 
 
 
-const Profile = () => {
+const Profile = (props) => {
     return (
         <div>
-            <ProfileInfo />
+            <ProfileInfo profile={props.profile}  />
             <Album />
             <BlogContainer />
         </div>

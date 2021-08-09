@@ -1,17 +1,23 @@
 import React from 'react';
 import s from './ProfileInfo.module.css';
+import Preloader from "../../../common/preloader/Preloader";
 
 
-const ProfileInfo = () => {
+const ProfileInfo = (props) => {
+    if(!props.profile){
+        return <Preloader />
+    }
+
     return (
         <div>
+
             <div className={s.avatar}>
-                Ava
-                <img src="https://icon-library.com/images/avatar-icon-images/avatar-icon-images-4.jpg" alt=''/>
+
+
             </div>
             <div className={s.bio}>
                 <div className={s.nameBio}>
-                    Name
+                    {props.profile.fullName}
                 </div>
                 <div className={s.textBio}>
                     Bio

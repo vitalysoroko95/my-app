@@ -63,7 +63,7 @@ export const deleteFriend = (userId) => ({type: DELETE_FRIEND, userId})
 export const setUsers = (users) => ({type: SET_USERS, users})
 export const setCurrentPage = (currentPage) => ({type: SET_CURRENT_PAGE, currentPage})
 export const setTotalCount = (totalCount) => ({type: SET_TOTAL_COUNT, count:totalCount })
-export const setFetching = (isFetching) => ({type: SET_FETCHING, isFetching })
+export const setIsFetching = (isFetching) => ({type: SET_FETCHING, isFetching })
 
 
 export default friendsReducer;
