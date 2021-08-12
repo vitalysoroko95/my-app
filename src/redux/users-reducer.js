@@ -1,7 +1,7 @@
 import {compose} from "redux";
 
-const ADD_FRIEND = 'ADD_FRIEND';
-const DELETE_FRIEND = 'DELETE_FRIEND';
+const FOLLOW = 'FOLLOW';
+const UNFOLLOW = 'UNFOLLOW';
 const SET_USERS = 'SET_USERS';
 const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
 const SET_TOTAL_COUNT = 'SET_TOTAL_COUNT';
@@ -9,7 +9,7 @@ const SET_FETCHING = 'SET_FETCHING';
 
 
 let initialState = {
-    friendsState: [],
+    users: [],
     pageSize: 100,
     totalUsersCount: 0,
     currentPage: 2,
@@ -17,23 +17,23 @@ let initialState = {
 }
 
 
-const friendsReducer = (state = initialState, action) => {
+const usersReducer = (state = initialState, action) => {
 
     switch (action.type) {
-        case ADD_FRIEND:
+        case FOLLOW:
             return {
                 ...state,
-                friendsState: state.friendsState.map(u => {
+                users: state.users.map(u => {
                     if (u.id === action.userId) {
                         return {...u, isFriend: true}
                     }
                     return u;
                 })
             }
-        case DELETE_FRIEND:
+        case UNFOLLOW:
             return {
                 ...state,
-                friendsState: state.friendsState.map(u => {
+                users: state.users.map(u => {
                     if (u.id === action.userId) {
                         return {...u, isFriend: false}
                     }
@@ -41,7 +41,7 @@ const friendsReducer = (state = initialState, action) => {
                 })
             }
         case SET_USERS: {
-            return {...state, friendsState: action.users}
+            return {...state, users: action.users}
         }
         case SET_CURRENT_PAGE : {
             return {...state, currentPage: action.currentPage};
@@ -58,12 +58,12 @@ const friendsReducer = (state = initialState, action) => {
             return state;
     }
 }
-export const addFriend = (userId) => ({type: ADD_FRIEND, userId})
-export const deleteFriend = (userId) => ({type: DELETE_FRIEND, userId})
+export const follow = (userId) => ({type: FOLLOW, userId})
+export const unFollow = (userId) => ({type: UNFOLLOW, userId})
 export const setUsers = (users) => ({type: SET_USERS, users})
 export const setCurrentPage = (currentPage) => ({type: SET_CURRENT_PAGE, currentPage})
 export const setTotalCount = (totalCount) => ({type: SET_TOTAL_COUNT, count:totalCount })
 export const setIsFetching = (isFetching) => ({type: SET_FETCHING, isFetching })
 
 
-export default friendsReducer;
+export default usersReducer;

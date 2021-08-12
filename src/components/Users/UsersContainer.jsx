@@ -1,19 +1,18 @@
 import React from 'react';
-import Friends from "./Friends";
+import Users from "./Users";
 import {connect} from "react-redux";
 import {
-    addFriend,
-    deleteFriend,
+    follow,
     setCurrentPage,
     setIsFetching,
     setTotalCount,
-    setUsers
-} from "../../redux/friends-reducer";
+    setUsers, unFollow
+} from "../../redux/users-reducer";
 import * as axios from "axios";
 import Preloader from "../../common/preloader/Preloader";
 
 
-class FriendsContainer extends React.Component {
+class UsersContainer extends React.Component {
 
 
     componentDidMount() {
@@ -38,14 +37,14 @@ class FriendsContainer extends React.Component {
     render() {
         return <>
             {this.props.isFetching ? <Preloader/> : null}
-            <Friends
+            <Users
                 totalUsersCount={this.props.totalUsersCount}
                 pageSize={this.props.pageSize}
                 pageClick={this.pageClick}
                 currentPage={this.props.currentPage}
-                deleteFriend={this.props.deleteFriend}
-                addFriend={this.props.addFriend}
-                friends={this.props.friends}
+                unFollow={this.props.unFollow}
+                follow={this.props.follow}
+                users={this.props.users}
             />
         </>
 
@@ -56,11 +55,11 @@ class FriendsContainer extends React.Component {
 
 let mapStateToProps = (state) => {
     return {
-        friends: state.friendsPage.friendsState,
-        pageSize: state.friendsPage.pageSize,
-        totalUsersCount: state.friendsPage.totalUsersCount,
-        currentPage: state.friendsPage.currentPage,
-        isFetching: state.friendsPage.isFetching
+        users: state.usersPage.users,
+        pageSize: state.usersPage.pageSize,
+        totalUsersCount: state.usersPage.totalUsersCount,
+        currentPage: state.usersPage.currentPage,
+        isFetching: state.usersPage.isFetching
 
 
     }
@@ -68,11 +67,11 @@ let mapStateToProps = (state) => {
 
 
 export default connect(mapStateToProps, {
-    addFriend,
-    deleteFriend,
+    follow,
+    unFollow,
     setUsers,
     setCurrentPage,
     setTotalCount,
     setIsFetching
 
-})(FriendsContainer);
+})(UsersContainer);

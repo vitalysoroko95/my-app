@@ -1,10 +1,10 @@
 import React from 'react';
-import styles from './Friends.module.css'
+import styles from './Users.module.css'
 import userPhoto from '../../assets/images/user.png'
 import {NavLink} from "react-router-dom";
 
 
-let Friends = (props) => {
+let Users = (props) => {
     let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
 
     let pages = [];
@@ -21,21 +21,21 @@ let Friends = (props) => {
             })}
         </div>
         {
-            props.friends.map(u => <div key={u.id}>
+            props.users.map(u => <div key={u.id}>
                     <div>
-                        <NavLink to={'/profile/' + u.id }>
-                        <div><img src={u.photos.small != null ? u.photos.small : userPhoto} className={styles.av}
-                                  alt=''/>
-                        </div>
+                        <NavLink to={'/profile/' + u.id}>
+                            <div><img src={u.photos.small != null ? u.photos.small : userPhoto} className={styles.av}
+                                      alt=''/>
+                            </div>
                         </NavLink>
                         <div>
                             {u.isFriend
                                 ? <button onClick={() => {
-                                    props.deleteFriend(u.id)
-                                }}>DELETE FRIEND</button>
+                                    props.unFollow(u.id)
+                                }}>UNFOLLOW</button>
                                 : <button onClick={() => {
-                                    props.addFriend(u.id)
-                                }}>ADD FRIEND</button>}
+                                    props.follow(u.id)
+                                }}>FOLLOW</button>}
                         </div>
                     </div>
                     <div>
@@ -53,4 +53,4 @@ let Friends = (props) => {
     </div>
 }
 
-export default Friends;
+export default Users;
