@@ -1,4 +1,4 @@
-import {compose} from "redux";
+
 import {usersAPI} from "../api/api";
 
 const FOLLOW = 'FOLLOW';
