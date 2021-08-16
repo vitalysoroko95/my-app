@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './Users.module.css'
 import userPhoto from '../../assets/images/user.png'
 import {NavLink} from "react-router-dom";
-import axios from "axios";
+import * as axios from "axios";
 
 
 let Users = (props) => {
@@ -30,27 +30,32 @@ let Users = (props) => {
                             </div>
                         </NavLink>
                         <div>
-                            {u.isFriend
-                                ? <button onClick={() => {
+                            {u.followed
+                                ? <button disabled={props.followingInProgress.some(id => id === u.id)} onClick={() => {
+                                    props.toogleFollowingInProgress(true, u.id)
                                     axios.delete('https://social-network.samuraijs.com/api/1.0/follow/${u.id}', {
                                         withCredentials: true,
-                                        headers: {"API-KEY": "4ab9a88c-51bb-4174-9021-e12138ddccc4"}
-                                    }).then(response=>{
-                                        if(response.data.resultCode === 0){
-                                            props.unFollow(u.id)
+                                        headers: {
+                                            "API-KEY": "ca9c4ec8-37c3-4650-8743-62f5aae466a6"
                                         }
+                                    }).then(response => {
+                                        if (response.data.resultCode === 0) {
+                                            props.unFollow(u.id);
+                                        }
+                                        props.toogleFollowingInProgress(false, u.id);
                                     })
                                 }}>UNFOLLOW</button>
-                                : <button onClick={() => {
+                                : <button disabled={props.followingInProgress.some(id => id === u.id)} onClick={() => {
+                                    props.toogleFollowingInProgress(true, u.id)
                                     axios.post('https://social-network.samuraijs.com/api/1.0/follow/${u.id}', {}, {
                                         withCredentials: true,
-                                        headers: {"API-KEY": "4ab9a88c-51bb-4174-9021-e12138ddccc4"}
-                                    }).then(response=>{
-                                        if(response.data.resultCode === 0){
-                                            props.follow(u.id)
+                                        headers: {"API-KEY": "ca9c4ec8-37c3-4650-8743-62f5aae466a6"}
+                                    }).then(response => {
+                                        if (response.data.resultCode === 0) {
+                                            props.follow(u.id);
                                         }
+                                        props.toogleFollowingInProgress(false, u.id)
                                     })
-
                                 }}>FOLLOW</button>}
                         </div>
                     </div>
