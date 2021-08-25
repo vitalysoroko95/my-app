@@ -63,8 +63,6 @@ export const getUserProfile = (userId) => (dispatch) => {
         .then(response => {
             dispatch(setUserProfile(response.data));
         });
-
-    ;
 }
 
 export const getStatus = (userId) => (dispatch) => {
@@ -74,8 +72,6 @@ export const getStatus = (userId) => (dispatch) => {
             debugger;
             dispatch(setStatus(response.data));
         });
-
-    ;
 }
 export const updateStatus = (status) => (dispatch) => {
 
@@ -85,8 +81,6 @@ export const updateStatus = (status) => (dispatch) => {
             dispatch(setStatus(status));
             }
         });
-
-    ;
 }
 
 
