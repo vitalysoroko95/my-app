@@ -22,9 +22,9 @@ const LoginReduxForm = reduxForm({
 })(LoginForm)
 
 
-const LoginPage = (props) => {
+const LoginPage = (formData) => {
 
-    const onSubmit = (formData)={
+    const onSubmit = (formData) = {
 
     }
 
