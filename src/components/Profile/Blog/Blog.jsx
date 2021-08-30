@@ -6,7 +6,7 @@ import { maxLengthCreator, required} from "../../../utils/validators/validators"
 import {Textarea} from "../../../common/FormsControls/FormsControls";
 
 
-const Blog = (props) => {
+const Blog = React.memo(props => {
 
     let state = props.profilePage;
     let postsElement = state.postsData.map(p => <Post message={p.message} likesCount={p.likesCount}/>)
@@ -28,7 +28,7 @@ const Blog = (props) => {
             </div>
         </div>
     )
-}
+})
 const maxLength = maxLengthCreator(10);
 const AddNewTextForm = (props) => {
     return (
@@ -48,4 +48,5 @@ const AddNewTextForm = (props) => {
 const AddNewTextFormRedux = reduxForm({
     form: 'blogAddNewTextForm'
 })(AddNewTextForm)
+
 export default Blog;
