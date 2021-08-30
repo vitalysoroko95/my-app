@@ -2,11 +2,11 @@ import React from 'react';
 import s from './Blog.module.css';
 import Post from "./Post/Post";
 import {Field, reduxForm} from "redux-form";
-import { maxLengthCreator, required} from "../../../utils/validators/validators";
+import {maxLengthCreator, required} from "../../../utils/validators/validators";
 import {Textarea} from "../../../common/FormsControls/FormsControls";
 
 
-const Blog = React.memo(props => {
+const Blog = React.memo((props => {
 
     let state = props.profilePage;
     let postsElement = state.postsData.map(p => <Post message={p.message} likesCount={p.likesCount}/>)
@@ -28,13 +28,14 @@ const Blog = React.memo(props => {
             </div>
         </div>
     )
-})
+}))
 const maxLength = maxLengthCreator(10);
 const AddNewTextForm = (props) => {
     return (
         <form onSubmit={props.handleSubmit}>
             <div>
-                <Field component={Textarea} name="newPostBody"  validate={[required, maxLength]} placeholder={"Enter your message"} />
+                <Field component={Textarea} name="newPostBody" validate={[required, maxLength]}
+                       placeholder={"Enter your message"}/>
             </div>
             <div>
                 <button className={s.button}>
