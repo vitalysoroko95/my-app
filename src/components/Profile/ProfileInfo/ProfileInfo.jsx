@@ -4,8 +4,8 @@ import Preloader from "../../../common/preloader/Preloader";
 import ProfileStatusWithHooks from "./ProfileStatusWithHooks";
 
 
-const ProfileInfo = (props) => {
-    if(!props.profile){
+const ProfileInfo = ({profile, status, updateStatus}) => {
+    if(!profile){
         return <Preloader />
     }
 
@@ -18,10 +18,10 @@ const ProfileInfo = (props) => {
             </div>
             <div className={s.bio}>
                 <div>
-                    <ProfileStatusWithHooks status ={props.status} updateStatus={props.updateStatus} />
+                    <ProfileStatusWithHooks status ={status} updateStatus={updateStatus} />
                 </div>
                 <div className={s.nameBio}>
-                    {props.profile.fullName}
+                    {profile.fullName}
                 </div>
                 <div className={s.textBio}>
                     Bio

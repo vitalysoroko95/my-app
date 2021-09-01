@@ -23,13 +23,15 @@ class UsersContainer extends React.Component {
 
 
     componentDidMount() {
-        this.props.requestUsers(this.props.currentPage, this.props.pageSize);
+
+        let {currentPage, pageSize} = this.props;
+        this.props.requestUsers(currentPage, pageSize);
 
     }
 
     pageClick = (pageNumber) => {
-
-        this.props.requestUsers(pageNumber, this.props.pageSize);
+        const {pageSize} = this.props
+        this.props.requestUsers(pageNumber, pageSize);
 
     }
 
@@ -57,7 +59,7 @@ class UsersContainer extends React.Component {
 let mapStateToProps = (state) => {
     return {
         users: getUsers(state),
-        pageSize: getPageSize(state) ,
+        pageSize: getPageSize(state),
         totalUsersCount: getTotalUsersCount(state),
         currentPage: getCurrentPage(state),
         isFetching: getIsFetching(state),
@@ -69,6 +71,5 @@ let mapStateToProps = (state) => {
 
 export default compose(
     connect(mapStateToProps, {
-        follow, unFollow, setCurrentPage, toggleFollowingInProgress,requestUsers
-
+        follow, unFollow, setCurrentPage, toggleFollowingInProgress, requestUsers
     }))(UsersContainer);
