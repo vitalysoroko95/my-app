@@ -2,7 +2,7 @@ import {getAuthUserData} from "./auth-reducer";
 import promise from "promise";
 
 
-const INITIALIZED_SUCCESS = 'INITIALIZED_SUCCESS';
+const INITIALIZED_SUCCESS = 'my-network/app-render/INITIALIZED_SUCCESS';
 
 
 let initialState = {
